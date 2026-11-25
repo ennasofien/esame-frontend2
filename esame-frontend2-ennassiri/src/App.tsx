@@ -1,7 +1,7 @@
-import Header from './components/Header.tsx';
+import Shell from './components/Shell.tsx';
 
 const App = () => {
-  return <Header />;
+  return <Shell />;
 };
 
 export default App;
