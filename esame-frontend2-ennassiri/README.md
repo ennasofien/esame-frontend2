@@ -1,32 +1,29 @@
-# React + TypeScript + Vite
+# Movie App – esame Frontend 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Ciao! Questo è il mio progetto per l'esame M9: un piccolo sito in **React + TypeScript** che mostra i film del **Signore degli Anelli**, prendendo i dati dalle API di **TMDB**.
 
-Currently, two official plugins are available:
+## Cosa fa
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **`/`** → la lista dei film (sempre la stessa ricerca, solo la prima pagina, niente filtri)
+- **`/movies/:id`** → il dettaglio di un film, caricato in base al numero nell'indirizzo
 
-## React Compiler
+Tutte e due le pagine hanno lo stesso header, perché stanno dentro la stessa `Shell`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Come farlo partire
 
-## Expanding the Oxlint configuration
+1. `cd esame-frontend2-ennassiri`
+2. `npm install`
+3. Crea il file `.env` (copia `.env.example`) e scrivi la tua chiave: `VITE_TMDB_API_KEY=la_tua_chiave`
+4. `npm run dev` e apri il link che compare nel terminale
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Come è fatto
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+Il sito è diviso in pezzi piccoli (componenti), ognuno fa una cosa sola:
+**Header** (barra in alto), **Shell** (contenitore comune), **PageHeading** (titolo della lista),
+**MovieGrid** (la griglia), **MovieCard** (la card di un film), **BackLink** (torna alla lista),
+**MovieInfo** (tutte le info nel dettaglio).
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Per i dati uso `useState` per salvarli, `useEffect` per far partire la richiesta quando si apre la pagina e `fetch` per chiamare l'API.
+Mentre carica scrive "Caricamento…", e se qualcosa va storto mostra un messaggio di errore.
+
+Fatto da **Soufian Ennassiri**
