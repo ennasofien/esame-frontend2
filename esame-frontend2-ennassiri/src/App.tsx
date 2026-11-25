@@ -1,5 +1,7 @@
+import Header from './components/Header.tsx';
+
 const App = () => {
-  return <h1>Movie App</h1>;
+  return <Header />;
 };
 
 export default App;
